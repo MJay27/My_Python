@@ -1,0 +1,63 @@
+'''
+Properties of BST:
+Utmost 2 children
+Left children would be smaller then it's parent and viceversa for right children
+
+Time complexity:
+Worst case time complexity for insert and search is O(h) : h is height of the tree
+
+Inorder traversal of BST always sorted output'''
+
+class Node:
+    def __init__(self,key):
+        self.key=key
+        self.left=None
+        self.right=None
+
+def search(root,key):
+    if root is None or root == key:
+        return root
+    
+    if root.key < key:
+        return search(root.right,key)
+    
+    return search(root.left,key)
+
+#Insert new key -> A new key is always inserted at the leaf
+def insert(root,key):
+    if root ==  None:
+        root = Node(key)
+    elif root.key < key:            
+        current = root                      # recursion: root.right = insert(root.right,key)
+        while current.right != None:
+            current = root.right
+        else:
+            if key < current.key:
+                current.left = Node(key)
+            else:
+                current.right = Node(key)
+    else:
+        current = root                  # recursion: root.left = insert(root.left,key)
+        while current.left != None:
+            current = current.left
+        else:
+            if key < current.key:
+                current.left = Node(key)
+            else:
+                current.right = Node(key)
+
+# Print inorder
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.key,end=" ")
+        inorder(root.right)
+r = Node(50)
+insert(r, 30)
+insert(r, 20)
+insert(r, 40)
+insert(r, 70)
+insert(r, 60)
+insert(r, 80)
+
+inorder(r)

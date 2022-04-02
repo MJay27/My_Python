@@ -1,0 +1,19 @@
+'''
+Imprtant methods:
+    lst.append()
+    lst.remove(ele)
+    lst.pop()
+    lst.pop(2)
+    + and * operator
+    len(lst)
+    lst.reverse() // don't print(lst.reverse())
+    x= lst.count(ele)
+    x=lst.index(ele)
+    lst[2]=2            //add or update value at index 2
+
+
+'''
+list1 = ['physics', 'chemistry', 1997, 2000]
+list2 = [1, 2, 3, 4, 5,1 ]
+list3 = ["a", "b", "c", "d"]
+

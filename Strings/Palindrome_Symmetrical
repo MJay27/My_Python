@@ -1,0 +1,23 @@
+string = "amaama"
+
+str1 = string[::-1]
+
+if string == str1:
+    print("Palindrome!")
+else:
+    print("Not Palindrome!")
+
+'''-------------------------------------'''
+
+mid = len(string)//2
+if len(string)%2==0:
+    first = string[:mid]
+    second = string[mid:]
+else:
+    first = string[:mid]
+    second = string[mid+1:]
+
+if first == second:
+    print("Symmetrical!")
+else:
+    print("Not Symmetrical!")

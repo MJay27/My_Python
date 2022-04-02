@@ -1,0 +1,43 @@
+'''Given number N : Find total number of unique BSTs that can be made
+
+#Concept of Catalan Number : 
+        Formula: C0 = C1 = 1 and Cn+1 = Summation Of (Ci * Cn-i for n >= 0) where 0 <= i <=n
+
+''' 
+# Time complexity is O(N*N!)
+def uniqueBSTs(n):
+    n1,n2,sum = 0,0,0
+    
+    if n==0 or n==1:
+        return 1
+    
+    for i in range(1,n+1):
+        n1 = uniqueBSTs(i-1)
+        n2 = uniqueBSTs(n-i)
+
+        sum += n1*n2
+
+    return sum
+# To optimize above function : use DP memoization
+# Time complexity is O(N**2) and Space Complexity : O(N)
+def uniqueBSTs_memoization(n):
+    memoize = [0 for i in range(n+1)]
+    memoize[0],memoize[1] = 1,1
+
+    if n==0 or n==1:
+        return memoize[0]
+    
+    for i in range(2,n+1):
+        for j in range(1,i+1):
+            memoize[i] += memoize[j-1]*memoize[i-j]
+
+    
+    return memoize[n]
+
+# Driver code
+n = 9
+ 
+# Function call
+print(uniqueBSTs(n))
+
+print(uniqueBSTs_memoization(n))
