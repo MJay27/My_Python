@@ -1,0 +1,52 @@
+from array import *
+
+int_array= array('i',[1,2,3,4,5,6])
+
+float_array = array('f',[1.1,1.2,1.3,1.4])
+
+double_array = array('d',[111.1,2222.2,3333333.3])
+
+'''USefule methods
+    insert(index,ele)
+    remove(ele)     // removes first occorunce of an element
+    pop()           // removes and returns last element : default value = -1
+    pop(1)          //removes element at index 1 and returns it
+    arr[0] = ele    //add the ele at 0 index if not available else update current value of 0 index with ele
+    arr.index(ele)  //search ele -> returns index : returns error if no element
+    count(ele)      //return total count of ele
+    extend(iterables)
+    arr.reverse()
+    arr.tolist()
+'''
+#Print array
+def print_array(arr):
+    for val in arr:
+        print(val,end=" ")
+
+# insert element at 3rd position
+int_array.insert(3,10)
+print_array(int_array)
+
+#insert at last is possible as array in array module is dynamic sized
+int_array.insert(len(int_array),11)
+print_array(int_array)
+
+#search 10
+search_10 = int_array.index(10)
+print("\n elem:",search_10)
+
+#pop
+int_array.pop()
+print_array(int_array)
+
+#count 1
+print("\ncount:",int_array.count(12))
+
+#reverse
+int_array.reverse()
+print_array(int_array)
+
+#list
+lst = int_array.tolist()
+print("\n list:",lst)
+
